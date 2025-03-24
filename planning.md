@@ -21,7 +21,7 @@ gantt
     title Timeline d'Implémentation
     dateFormat  YYYY-MM-DD
     section Préparation
-    Environnement       :done, a1, 2025-03-24, 2d
+    Environnement       :done, a1, 2025-24-03, 2d
     section Données
     Prétraitement      :active, a2, after a1, 5d
     section Modèle
