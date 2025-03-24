@@ -1,4 +1,4 @@
-# Planning d'Implémentation - M3Diaalogue (Amélioration de GCN)
+# Planning d'Implémentation - M3Dialogue (Amélioration de GCN)
 
 Voici un plan détaillé pour l'implémentation de votre architecture avancée DialogueGCN++, organisé en phases claires avec livrables et dépendances :
 
