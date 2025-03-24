@@ -19,4 +19,4 @@ Our proposed architecture, **M3Dialogue** (*Multimodal & Dynamic Memory for Dial
 
 ## Architectural Advantages
 
- ![Mon Image](mon_image.png)
+ ![Mon Image](dialoguegcn++_architecture_v0.png)
