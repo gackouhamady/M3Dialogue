@@ -17,6 +17,6 @@ Our proposed architecture, **M3Dialogue** (*Multimodal & Dynamic Memory for Dial
 | **Context Window**    | Full history | Fixed window | Adaptive learning |
 | **Memory Mechanism**  | GRU-based  | None       | Cross-modal Memory |
 
-## Architectural Advantages
+## Architecture
 
  ![Mon Image](dialoguegcn++_architecture_v0.png)
