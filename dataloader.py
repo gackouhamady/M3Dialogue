@@ -1,8 +1,8 @@
-import torch
-from torch.utils.data import Dataset
-from torch.nn.utils.rnn import pad_sequence
-import pickle, pandas as pd
-import numpy as np
+import torch # for tensor and NN operations
+from torch.utils.data import Dataset  # For Custom  data management 
+from torch.nn.utils.rnn import pad_sequence  #  For padding sequence 
+import pickle, pandas as pd # for serializing,  data mainipulation
+import numpy as np  # Mathematicls  , matrixs computations
 
 class IEMOCAPDataset(Dataset):
     def __init__(self, train=True):
