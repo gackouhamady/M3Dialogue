@@ -24,12 +24,12 @@ def test_dataloader():
         assert isinstance(labels, torch.Tensor), "Labels should be a tensor"
 
         # Vérifiez les dimensions des tenseurs
-        assert text_features.ndimension() == 3, "Text features should be a 2D tensor"
-        assert visual_features.ndimension() == 3, "Visual features should be a 2D tensor"
-        assert audio_features.ndimension() == 3, "Audio features should be a 2D tensor"
-        assert speaker_info.ndimension() == 3, "Speaker info should be a 2D tensor"
-        assert mask.ndimension() == 2, "Mask should be a 1D tensor"
-        assert labels.ndimension() == 2, "Labels should be a 1D tensor"
+        assert text_features.ndimension() == 3, "Text features should be a 3D tensor"
+        assert visual_features.ndimension() == 3, "Visual features should be a 3D tensor"
+        assert audio_features.ndimension() == 3, "Audio features should be a 3D tensor"
+        assert speaker_info.ndimension() == 3, "Speaker info should be a 3D tensor"
+        assert mask.ndimension() == 2, "Mask should be a 2D tensor"
+        assert labels.ndimension() == 2, "Labels should be a 2D tensor"
         
         # Assurez-vous qu'il y a des données dans les vidéos
         assert len(vid) > 0, "Video IDs should not be empty"
