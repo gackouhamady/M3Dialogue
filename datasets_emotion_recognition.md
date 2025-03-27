@@ -7,6 +7,7 @@
 - **Size**: 13k+ utterances, 1.4k dialogues.
 - **Modalities**: Text, audio, video.
 - **Link**: [https://affective-meld.github.io](https://affective-meld.github.io)
+-  **Link**: [http://bit.ly/MELD-features](http://bit.ly/MELD-features)
 
 ### IEMOCAP (Interactive Emotional Dyadic Motion Capture)
 - **Description**: Dyadic conversations recorded in a studio with 6 annotated emotions.
