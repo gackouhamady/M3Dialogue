@@ -1,79 +1,79 @@
-# Liste des Datasets pour la Reconnaissance d'Émotions dans les Conversations
+# List of Datasets for Emotion Recognition in Conversations
 
-## 1. Datasets Multimodaux (Texte + Audio + Visuel)
+## 1. Multimodal Datasets (Text + Audio + Visual)
 
 ### MELD (Multimodal EmotionLines Dataset)
-- **Description** : Conversations multipartites de la série *Friends*, annotées avec 7 émotions.
-- **Taille** : 13k+ utterances, 1.4k dialogues.
-- **Modalités** : Texte, audio, vidéo.
-- **Lien** : [https://affective-meld.github.io](https://affective-meld.github.io)
+- **Description**: Multi-party conversations from the *Friends* series, annotated with 7 emotions.
+- **Size**: 13k+ utterances, 1.4k dialogues.
+- **Modalities**: Text, audio, video.
+- **Link**: [https://affective-meld.github.io](https://affective-meld.github.io)
 
 ### IEMOCAP (Interactive Emotional Dyadic Motion Capture)
-- **Description** : Conversations dyadiques en studio avec 6 émotions annotées.
-- **Taille** : 10k+ utterances.
-- **Modalités** : Texte, audio, capture de mouvement.
-- **Lien** : [https://sail.usc.edu/iemocap/](https://sail.usc.edu/iemocap/)
+- **Description**: Dyadic conversations recorded in a studio with 6 annotated emotions.
+- **Size**: 10k+ utterances.
+- **Modalities**: Text, audio, motion capture.
+- **Link**: [https://sail.usc.edu/iemocap/](https://sail.usc.edu/iemocap/)
 
 ### CMU-MOSEI (Multimodal Opinion Sentiment and Emotion Intensity)
-- **Description** : Vidéos YouTube avec émotions et intensité (valence/arousal).
-- **Taille** : 23.5k+ clips.
-- **Modalités** : Texte, audio, vidéo.
-- **Lien** : [https://github.com/A2Zadeh/CMU-MOSEI](https://github.com/A2Zadeh/CMU-MOSEI)
+- **Description**: YouTube videos annotated with emotions and intensity (valence/arousal).
+- **Size**: 23.5k+ clips.
+- **Modalities**: Text, audio, video.
+- **Link**: [https://github.com/A2Zadeh/CMU-MOSEI](https://github.com/A2Zadeh/CMU-MOSEI)
 
 ---
 
-## 2. Datasets Textuels (Conversations Annotées)
+## 2. Text-Based Datasets (Annotated Conversations)
 
 ### EmoryNLP
-- **Description** : Conversations de *Friends* avec émotions et relations sociales.
-- **Taille** : 12k+ utterances.
-- **Lien** : [https://github.com/emorynlp/emorynlp](https://github.com/emorynlp/emorynlp)
+- **Description**: *Friends* conversations annotated with emotions and social relationships.
+- **Size**: 12k+ utterances.
+- **Link**: [https://github.com/emorynlp/emorynlp](https://github.com/emorynlp/emorynlp)
 
 ### DailyDialog
-- **Description** : Conversations quotidiennes en anglais (7 émotions).
-- **Taille** : 13k+ dialogues.
-- **Lien** : [https://arxiv.org/abs/1710.03957](https://arxiv.org/abs/1710.03957)
+- **Description**: Daily English conversations (7 emotions).
+- **Size**: 13k+ dialogues.
+- **Link**: [https://arxiv.org/abs/1710.03957](https://arxiv.org/abs/1710.03957)
 
 ### EmotionPush
-- **Description** : Messages Facebook annotés avec 6 émotions.
-- **Taille** : 1k+ conversations.
-- **Lien** : [https://github.com/facebookresearch/EmpatheticDialogues](https://github.com/facebookresearch/EmpatheticDialogues)
+- **Description**: Facebook messages annotated with 6 emotions.
+- **Size**: 1k+ conversations.
+- **Link**: [https://github.com/facebookresearch/EmpatheticDialogues](https://github.com/facebookresearch/EmpatheticDialogues)
 
 ---
 
-## 3. Datasets Audio-Visuel (Sans Texte)
+## 3. Audio-Visual Datasets (Without Text)
 
 ### RAVDESS (Ryerson Audio-Visual Database)
-- **Description** : Acteurs exprimant 8 émotions de base.
-- **Taille** : 7.3k clips.
-- **Modalités** : Audio + vidéo.
-- **Lien** : [https://zenodo.org/record/1188976](https://zenodo.org/record/1188976)
+- **Description**: Actors expressing 8 basic emotions.
+- **Size**: 7.3k clips.
+- **Modalities**: Audio + video.
+- **Link**: [https://zenodo.org/record/1188976](https://zenodo.org/record/1188976)
 
 ### CREMA-D (Crowd-Sourced Emotional Multimodal Actors Dataset)
-- **Description** : Clips audio-visuels avec 6 émotions.
-- **Taille** : 7.4k clips.
-- **Lien** : [https://github.com/CheyneyComputerScience/CREMA-D](https://github.com/CheyneyComputerScience/CREMA-D)
+- **Description**: Audio-visual clips with 6 emotions.
+- **Size**: 7.4k clips.
+- **Link**: [https://github.com/CheyneyComputerScience/CREMA-D](https://github.com/CheyneyComputerScience/CREMA-D)
 
 ---
 
-## 4. Datasets Géants (Pour Pré-entraînement)
+## 4. Large-Scale Datasets (For Pretraining)
 
 ### YouTube-8M Emotions
-- **Description** : 7M vidéos YouTube avec valence/arousal.
-- **Lien** : [https://research.google.com/youtube8m/](https://research.google.com/youtube8m/)
+- **Description**: 7M YouTube videos annotated with valence/arousal.
+- **Link**: [https://research.google.com/youtube8m/](https://research.google.com/youtube8m/)
 
 ### AffectNet
-- **Description** : 1M images faciales annotées (8 émotions).
-- **Lien** : [http://mohammadmahoor.com/affectnet/](http://mohammadmahoor.com/affectnet/)
+- **Description**: 1M annotated facial images (8 emotions).
+- **Link**: [http://mohammadmahoor.com/affectnet/](http://mohammadmahoor.com/affectnet/)
 
 ---
 
-## Recommandations d'Utilisation
-| Cas d'Usage                          | Dataset(s) Recommandé(s)  |
-|--------------------------------------|---------------------------|
-| **Conversations multimodales**       | MELD + IEMOCAP            |
-| **Modèles lourds**                   | CMU-MOSEI + YouTube-8M    |
-| **Conversations informelles**        | DailyDialog + EmotionPush |
-| **Audio-Visuel seul**                | RAVDESS + CREMA-D         |
+## Usage Recommendations
+| Use Case                          | Recommended Dataset(s)  |
+|-----------------------------------|-------------------------|
+| **Multimodal conversations**      | MELD + IEMOCAP          |
+| **Large-scale models**            | CMU-MOSEI + YouTube-8M  |
+| **Informal conversations**        | DailyDialog + EmotionPush |
+| **Audio-visual only**             | RAVDESS + CREMA-D       |
 
-> **Note** : Pour les droits d'utilisation, vérifiez les licences spécifiques à chaque dataset.
+> **Note**: For usage rights, check the specific licenses of each dataset.
