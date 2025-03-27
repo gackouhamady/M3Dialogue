@@ -1,37 +1,37 @@
-# Configuration de l'environnement pour M3Dialogue
+# Environment Setup for M3Dialogue
 
-## 1. Prérequis système
-- **GPU** : NVIDIA CUDA ≥ 11.3 (recommandé)
-- **RAM** : ≥ 16GB (32GB pour les gros datasets)
-- **Espace disque** : ≥ 50GB
+## 1. System Requirements
+- **GPU**: NVIDIA CUDA ≥ 11.3 (recommended)
+- **RAM**: ≥ 16GB (32GB for large datasets)
+- **Disk Space**: ≥ 50GB
 
-## 2. Création de l'environnement virtuel
+## 2. Creating the Virtual Environment
 ```bash
-# Pour Linux/Mac
+# For Linux/Mac
 python -m venv m3dialogue_env
 source m3dialogue_env/bin/activate
 
-# Pour Windows
+# For Windows
 python -m venv m3dialogue_env
 .\m3dialogue_env\Scripts\activate
 ```
-**Note** : Conserver le terminal ouvert après activation
+**Note**: Keep the terminal open after activation.
 
-## 3. Installation des bibliothèques de base
+## 3. Installing Core Libraries
 ```bash
-# PyTorch avec support CUDA
+# PyTorch with CUDA support
 pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu113
 
-# Bibliothèques essentielles
+# Essential libraries
 pip install transformers numpy pandas tqdm
 ```
 
-## 4. Traitement multimodal
+## 4. Multimodal Processing
 
-### Texte
+### Text
 ```bash
 pip install spacy nltk sentence-transformers
-python -m spacy download en_core_web_sm  # Modèle anglais pour spaCy
+python -m spacy download en_core_web_sm  # English model for spaCy
 ```
 
 ### Audio
@@ -39,7 +39,7 @@ python -m spacy download en_core_web_sm  # Modèle anglais pour spaCy
 pip install librosa torchaudio pydub
 ```
 
-### Visuel
+### Visual
 ```bash
 pip install opencv-python face-alignment mediapipe
 ```
@@ -48,66 +48,63 @@ pip install opencv-python face-alignment mediapipe
 ```bash
 # DGL (Deep Graph Library)
 pip install dgl-cu113 -f https://data.dgl.ai/wheels/cu113/repo.html
-##  Pour CPU 
+## For CPU 
 pip install dgl dglgo
 
 # PyTorch Geometric
 pip install torch-geometric
-# Version CUDA 11.3 (GPU)
+# CUDA 11.3 version (GPU)
 pip install torch-scatter torch-sparse torch-cluster torch-spline-conv -f https://data.pyg.org/whl/torch-1.10.0+cu113.html
 pip install torch-geometric
-
 ```
 
-## 6. Évaluation et suivi
+## 6. Evaluation and Monitoring
 ```bash
 pip install scikit-learn wandb matplotlib seaborn
 ```
 
-## 7. Vérification de l'installation
+## 7. Installation Verification
 ```python
 import torch
-print(f"CUDA disponible: {torch.cuda.is_available()}")
-print(f"Version PyTorch: {torch.__version__}")
+print(f"CUDA available: {torch.cuda.is_available()}")
+print(f"PyTorch version: {torch.__version__}")
 ```
 
-## 8. Fichier requirements.txt (optionnel)
+## 8. requirements.txt File (Optional)
 ```bash
-# Générer le fichier
+# Generate the file
 pip freeze > requirements.txt
 
-# Réinstaller ultérieurement
+# Reinstall later
 pip install -r requirements.txt
 ```
 
-## Bonnes pratiques
-### Tester les imports critiques :
+## Best Practices
+### Test Critical Imports:
 ```python
 from transformers import BertModel  # Test BERT
 import dgl  # Test GNN
 import librosa  # Test audio
 ```
 
-### Configuration W&B :
+### W&B Configuration:
 ```bash
-wandb login  # Suivi des expériences
+wandb login  # Experiment tracking
 ```
 
-### Résolution des conflits :
+### Resolving Conflicts:
 ```bash
-pip check  # Vérifie les incompatibilités
+pip check  # Check for incompatibilities
 ```
-**Warning** : Pour les problèmes CUDA, vérifiez la version avec `nvcc --version`
+**Warning**: For CUDA-related issues, check the version with `nvcc --version`
 
 ---
 
-## Fonctionnalités du fichier :
-1. **Sections claires** avec hiérarchie visuelle
-2. **Commandes prêtes à copier-coller**
-3. **Commentaires contextuels** pour chaque étape
-4. **Vérifications automatiques** incluses
-5. **Options pour tous les OS** (Linux/Mac/Windows)
+## File Features:
+1. **Clear sections** with visual hierarchy
+2. **Copy-paste ready commands**
+3. **Contextual comments** for each step
+4. **Built-in automatic checks**
+5. **Options for all OS** (Linux/Mac/Windows)
 
-Ce fichier peut être placé à la racine de votre projet et mis à jour au fur et à mesure de l'évolution des dépendances.
-
-
+This file can be placed at the root of your project and updated as dependencies evolve.
