@@ -5,7 +5,7 @@ import torch.optim as optim
 from torch.utils.data import DataLoader
 from torch.utils.data.sampler import SubsetRandomSampler
 from dataloader import IEMOCAPDataset
-from model import MaskedNLLLoss, LSTMModel, GRUModel, DialogRNNModel, DialogueGCNModel
+from model import DialogRNNModel, GRUModel, LSTMModel, MaskedNLLLoss, DialogueGCNModel
 from sklearn.metrics import f1_score, confusion_matrix, accuracy_score, classification_report, precision_recall_fscore_support
 
 # We use seed = 100 for reproduction of the results reported in the paper.
@@ -307,6 +307,7 @@ if __name__ == '__main__':
                                       1/0.160585,
                                       1/0.127711,
                                       1/0.252668])
+    
     
     if args.class_weight:
         if args.graph_model:
