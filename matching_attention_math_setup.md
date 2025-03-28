@@ -4,11 +4,23 @@ This module implements a matching attention mechanism, which computes attention 
 
 ## Notation
 
-Let \( M \in \mathbb{R}^{L \times d_m} \) be the memory matrix with sequence length \( L \) and memory dimension \( d_m \).
+Let 
+$$
+M \in \mathbb{R}^{L \times d_m}
+$$
+be the memory matrix with sequence length \( L \) and memory dimension \( d_m \).
 
-Let \( x \in \mathbb{R}^{d_c} \) be the candidate vector with dimension \( d_c \).
+Let 
+$$
+x \in \mathbb{R}^{d_c}
+$$
+be the candidate vector with dimension \( d_c \).
 
-Let \( \text{mask} \in \{0,1\}^L \) be an optional binary mask for the memory positions.
+Let 
+$$
+\text{mask} \in \{0,1\}^L
+$$
+be an optional binary mask for the memory positions.
 
 ## Architecture
 
@@ -27,11 +39,11 @@ This is implemented by `self.transform = nn.Linear(cand_dim, mem_dim, bias=True)
 The attention scores \( \alpha \) are computed as:
 
 $$
-\alpha' = \tanh(x'^\top M) \odot \text{mask}
+\alpha' = \tanh\left( x'^\top M \right) \odot \text{mask}
 $$
 
 $$
-\alpha = \text{softmax}(\alpha', \text{dim}=1)
+\alpha = \text{softmax}\left( \alpha', \text{dim}=1 \right)
 $$
 
 where \( \odot \) denotes element-wise multiplication and the mask is broadcast appropriately.
