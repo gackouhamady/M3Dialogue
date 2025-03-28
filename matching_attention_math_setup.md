@@ -19,7 +19,7 @@ $$
 x' = W x + b
 $$
 
-where $$ W \in \mathbb{R}^{d_m \times d_c} $$, \( b \in \mathbb{R}^{d_m} \).
+where $$ W \in \mathbb{R}^{d_m \times d_c} $$, $$ b \in \mathbb{R}^{d_m} $$.
 
 This is implemented by `self.transform = nn.Linear(cand_dim, mem_dim, bias=True)`.
 
@@ -34,7 +34,7 @@ $$
 \alpha = \text{softmax}(\alpha', \text{dim}=1)
 $$
 
-where \( \odot \) denotes element-wise multiplication and the mask is broadcast appropriately.
+where $$ \odot $$ denotes element-wise multiplication and the mask is broadcast appropriately.
 
 ### Normalization:
 The attention weights are normalized to sum to 1 over the valid (unmasked) positions:
