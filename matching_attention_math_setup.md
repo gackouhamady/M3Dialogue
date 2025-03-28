@@ -15,9 +15,9 @@ Let \( \text{mask} \in \{0,1\}^L \) be an optional binary mask for the memory po
 ### Linear Transformation:
 First, the candidate vector \( x \) is transformed to match the memory dimension:
 
-\[
+$$
 x' = W x + b
-\]
+$$
 
 where \( W \in \mathbb{R}^{d_m \times d_c} \), \( b \in \mathbb{R}^{d_m} \).
 
@@ -26,29 +26,29 @@ This is implemented by `self.transform = nn.Linear(cand_dim, mem_dim, bias=True)
 ### Attention Computation:
 The attention scores \( \alpha \) are computed as:
 
-\[
+$$
 \alpha' = \tanh(x'^\top M) \odot \text{mask}
-\]
+$$
 
-\[
+$$
 \alpha = \text{softmax}(\alpha', \text{dim}=1)
-\]
+$$
 
 where \( \odot \) denotes element-wise multiplication and the mask is broadcast appropriately.
 
 ### Normalization:
 The attention weights are normalized to sum to 1 over the valid (unmasked) positions:
 
-\[
+$$
 \alpha_{\text{norm}} = \frac{\alpha \odot \text{mask}}{\sum (\alpha \odot \text{mask})}
-\]
+$$
 
 ### Attention Pooling:
 The final attended representation is computed as:
 
-\[
+$$
 h = \sum_{i=1}^{L} \alpha_i M_i
-\]
+$$
 
 This is implemented efficiently as a batched matrix multiplication.
 
