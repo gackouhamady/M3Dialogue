@@ -6,6 +6,8 @@ from torch.nn.utils.rnn import pad_sequence
 from torch_geometric.nn import RGCNConv, GraphConv
 import numpy as np
 
+
+
 class MatchingAttention(nn.Module):
     def __init__(self, mem_dim, cand_dim, alpha_dim=None, att_type='general2'):
         super(MatchingAttention, self).__init__()
@@ -14,6 +16,7 @@ class MatchingAttention(nn.Module):
         self.att_type = att_type
         self.transform = nn.Linear(cand_dim, mem_dim, bias=True)
         
+
     def forward(self, M, x, mask=None):
         if mask is None:
             mask = torch.ones(M.size(1), M.size(0)).type(M.type())
