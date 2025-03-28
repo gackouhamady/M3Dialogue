@@ -4,13 +4,13 @@
 This module implements a matching attention mechanism, which computes attention weights between a candidate vector and a memory matrix, then returns an attention-pooled representation.
 
 ## Notation
-$$
-Let \( M \in \mathbb{R}^{L 	imes d_m} \) be the memory matrix with sequence length \( L \) and memory dimension \( d_m \).
+
+Let  $$ \( M \in \mathbb{R}^{L 	imes d_m} \)$$ be the memory matrix with sequence length \( L \) and memory dimension \( d_m \).
 
 Let \( x \in \mathbb{R}^{d_c} \) be the candidate vector with dimension \( d_c \).
 
 Let \( 	ext{mask} \in \{0,1\}^L \) be an optional binary mask for the memory positions.
-$$
+
 ## Architecture
 
 ### Linear Transformation:
