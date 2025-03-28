@@ -4,23 +4,11 @@ This module implements a matching attention mechanism, which computes attention 
 
 ## Notation
 
-Let 
-$$
-M \in \mathbb{R}^{L \times d_m}
-$$
-be the memory matrix with sequence length \( L \) and memory dimension \( d_m \).
+Let \( M \in \mathbb{R}^{L \times d_m} \) be the memory matrix with sequence length \( L \) and memory dimension \( d_m \).
 
-Let 
-$$
-x \in \mathbb{R}^{d_c}
-$$
-be the candidate vector with dimension \( d_c \).
+Let \( x \in \mathbb{R}^{d_c} \) be the candidate vector with dimension \( d_c \).
 
-Let 
-$$
-\text{mask} \in \{0,1\}^L
-$$
-be an optional binary mask for the memory positions.
+Let \( \text{mask} \in \{0,1\}^L \) be an optional binary mask for the memory positions.
 
 ## Architecture
 
