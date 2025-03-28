@@ -47,6 +47,11 @@
 | Accuracy | `sklearn.metrics.accuracy_score` | Standard classification metric |
 | Confusion Matrix | `sklearn.metrics.confusion_matrix` | Model analysis tool |
 
+#### Train Execution  
+```bash
+python train.py --base-model 'LSTM' --graph-model --nodal-attention --dropout 0.4 --lr 0.0003 --batch-size 32 --class-weight --l2 0.0 --no-cuda
+```
+
 ### 5. Core Training Loop
 ```python
 for e in range(n_epochs):
