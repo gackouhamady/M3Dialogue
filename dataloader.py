@@ -1,3 +1,4 @@
+import numpy as np
 import torch
 from torch.utils.data import Dataset
 from torch.nn.utils.rnn import pad_sequence
@@ -148,14 +149,24 @@ class DailyDialogueDataset2(Dataset):
 
         self.len = len(self.keys)
 
+        
+
     def __getitem__(self, index):
         conv = self.keys[index]
+        
+        # Optimisation des conversions en Tensor
+        features = np.array(self.Features[conv], dtype=np.float32)
+        speakers = np.array([[1, 0] if x == '0' else [0, 1] for x in self.Speakers[conv]], dtype=np.float32)
+        weights = np.ones(len(self.EmotionLabels[conv]), dtype=np.float32)
+        labels = np.array(self.EmotionLabels[conv], dtype=np.int64)
+        
+        return (torch.from_numpy(features),
+                torch.from_numpy(speakers),
+                torch.from_numpy(weights),
+                torch.from_numpy(labels),
+                conv)
 
-        return torch.FloatTensor(self.Features[conv]), \
-               torch.FloatTensor([[1, 0] if x == '0' else [0, 1] for x in self.Speakers[conv]]), \
-               torch.FloatTensor([1] * len(self.EmotionLabels[conv])), \
-               torch.LongTensor(self.EmotionLabels[conv]), \
-               conv
+
 
     def __len__(self):
         return self.len
