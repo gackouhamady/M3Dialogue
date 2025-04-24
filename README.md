@@ -204,5 +204,83 @@ Calcule des scores d'attention pour les arêtes dynamiques.
 
 - Classification : Couche finale avec n_classes sorties.
 
+
+
+
+
+
+
+
+### Pipeline Design of Hybrid DialogueGCN + Transformer
+
+  ```bash
+  =====================================================================
+  |                                                                   |
+  |    [Input Features] (seq_len, batch, D_m)                         |
+  |           |                                                       |
+  |           v                                                       |
+  |  +-----------------------------+                                   |
+  |  | CNN Encoder (Kim, 2014)     | -> (seq_len, batch, D_cnn)       |
+  |  +-----------------------------+                                   |
+  |           |                                                       |
+  |           v                                                       |
+  |  +-----------------------------+                                   |
+  |  | Transformer Encoder         | -> (seq_len, batch, D_tfm)       |
+  |  | (Vaswani et al., 2017)      |                                   |
+  |  +-----------------------------+                                   |
+  |           |                                                       |
+  |           v                                                       |
+  |  +-----------------------------+                                   |
+  |  | Adaptive Temporal Attention | --> Edge Weights + Time Windows  |
+  |  +-----------------------------+                                   |
+  |           |                                                       |
+  |           v                                                       |
+  |  +-----------------------------+                                   |
+  |  | Contextual Reinforcement    | --> ẽi enriched with neighbors   |
+  |  +-----------------------------+                                   |
+  |           |                                                       |
+  |           v                                                       |
+  |  +-----------------------------+                                   |
+  |  | Graph Construction          |                                   |
+  |  | - edge_index (2, num_edges) |                                   |
+  |  | - edge_type  (num_edges,)   |                                   |
+  |  | - edge_norm  (num_edges,)   |                                   |
+  |  +-----------------------------+                                   |
+  |           |                                                       |
+  |           v                                                       |
+  |  +-----------------------------+                                   |
+  |  | Graph Network               |                                   |
+  |  | - Relational GCN (RGCNConv) | --> (num_nodes, D_gcn1)          |
+  |  | - GraphConv / GATConv       | --> (num_nodes, D_gcn2)          |
+  |  +-----------------------------+                                   |
+  |           |                                                       |
+  |           v                                                       |
+  |  +-----------------------------+                                   |
+  |  | Feature Fusion Module       |                                   |
+  |  | - Transformer Output        |                                   |
+  |  | - GCN Output                |                                   |
+  |  | - Fusion: Residual + Align  | --> hi_fused                     |
+  |  +-----------------------------+                                   |
+  |           |                                                       |
+  |           v                                                       |
+  |  +-----------------------------+                                   |
+  |  | Contrastive Learning Loss   | --> Lcontrast                    |
+  |  | (SimCLR-style)              |                                   |
+  |  +-----------------------------+                                   |
+  |           |                                                       |
+  |           v                                                       |
+  |  +-----------------------------+                                   |
+  |  | Multimodal Fusion (option)  | --> MFN(text, audio, video)      |
+  |  +-----------------------------+                                   |
+  |           |                                                       |
+  |           v                                                       |
+  |  +-----------------------------+                                   |
+  |  | Classification              |                                   |
+  |  | - Linear Layer              | --> (seq_len, batch, n_classes)  |
+  |  | - LogSoftmax                |                                   |
+  |  +-----------------------------+                                   |
+  |                                                                   |
+  =====================================================================
+  ```
  
 
