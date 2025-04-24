@@ -282,5 +282,23 @@ Calcule des scores d'attention pour les arêtes dynamiques.
   |                                                                   |
   =====================================================================
   ```
- 
+
+
+### 📌 Points clés ajoutés par rapport à DialogueGCN
+- Transformer Encoder intégré tôt pour encoder les séquences + position.
+
+- Renforcement contextuel pour utterances courtes : pondération attentionnelle locale.
+
+- Fusion GCN + Transformer : par résidus ou concaténation avec alignement (MLP).
+
+- Contrastive Learning : encourage les représentations proches pour même émotion.
+
+- Option multimodalité : MFN si audio/visuel disponible.
+
+- Loss combinée : Ltotal = LCE + λ1 * Lcontrast + λ2 * L2-regularization.
+
+### 🎯 Format d'entrée et flux
+- Input: (seq_len, batch, D_m) où D_m = dimension des embeddings textuels
+
+-Output: (seq_len, batch, n_classes) prédictions d’émotions
 
