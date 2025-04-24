@@ -20,3 +20,62 @@ Our proposed architecture, **M3Dialogue** (*Multimodal & Dynamic Memory for Dial
 ## Architecture
 
  ![Mon Image](dialoguegcn++_architecture_v0.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Pipeline design of DGCN 
+ =====================================================================
+|                                                                   |
+|  [Input Features] (seq_len, batch, D_m)                           |
+|        |                                                          |
+|        v                                                          |
+|  +---------------------+                                          |
+|  | BASE MODEL          |                                          |
+|  | (DialogRNN/LSTM/GRU)|--> (seq_len, batch, 2*D_e)               |
+|  +---------------------+                                          |
+|        |                                                          |
+|        v                                                          |
+|  +---------------------+                                          |
+|  | Adaptive Temporal   |                                          |
+|  | Attention           |--> Edge weights + Dynamic Connections    |
+|  +---------------------+                                          |
+|        |                                                          |
+|        v                                                          |
+|  +---------------------+                                          |
+|  | Graph Construction  |                                          |
+|  | - edge_index        |--> (2, num_edges)                        |
+|  | - edge_norm         |--> (num_edges,)                          |
+|  | - edge_type         |--> (num_edges,)                          |
+|  +---------------------+                                          |
+|        |                                                          |
+|        v                                                          |
+|  +---------------------+                                          |
+|  | Graph Network       |                                          |
+|  | - RGCNConv          |--> (num_nodes, graph_hidden_size)        |
+|  | - GraphConv         |                                          |
+|  +---------------------+                                          |
+|        |                                                          |
+|        v                                                          |
+|  +---------------------+                                          |
+|  | Nodal Attention     | (Optionnel)                              |
+|  | (MatchingAttention) |--> Features pondérées                   |
+|  +---------------------+                                          |
+|        |                                                          |
+|        v                                                          |
+|  +---------------------+                                          |
+|  | Classification      |                                          |
+|  | - Linear(D_h)       |--> (seq_len, batch, n_classes)           |
+|  | - LogSoftmax        |                                          |
+|  +---------------------+                                          |
+|                                                                   |
+=====================================================================
