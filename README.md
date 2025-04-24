@@ -300,5 +300,5 @@ Calcule des scores d'attention pour les arêtes dynamiques.
 ### 🎯 Format d'entrée et flux
 - Input: (seq_len, batch, D_m) où D_m = dimension des embeddings textuels
 
--Output: (seq_len, batch, n_classes) prédictions d’émotions
+- Output: (seq_len, batch, n_classes) prédictions d’émotions
 
