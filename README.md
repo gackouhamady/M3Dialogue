@@ -34,6 +34,7 @@ Our proposed architecture, **M3Dialogue** (*Multimodal & Dynamic Memory for Dial
 
 
 ## Pipeline design of DGCN 
+```bash
  =====================================================================
 |                                                                   |
 |  [Input Features] (seq_len, batch, D_m)                           |
@@ -79,3 +80,4 @@ Our proposed architecture, **M3Dialogue** (*Multimodal & Dynamic Memory for Dial
 |  +---------------------+                                          |
 |                                                                   |
 =====================================================================
+```
